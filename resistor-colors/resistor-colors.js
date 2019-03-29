@@ -5,13 +5,15 @@ const colorCode = (color) => {
     return COLORS.indexOf(lowerCaseColor)
 }
 
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
 const value = (colorArray) => {
-    let codeSum = ""
+    let codeArray = []
     colorArray.forEach( color => {
-        let num = colorCode(color)
-        codeSum += num
+        let num = colorCode(color).toString()
+        codeArray.push(num)
     })
-    return parseInt(codeSum)
+    return parseInt(codeArray.reduce(reducer))
 }
 
 export {value}

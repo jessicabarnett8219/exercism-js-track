@@ -1,22 +1,24 @@
+
+const transform = (nucleotide) => {
+    const rnaKey = {
+        G: "C",
+        C: "G",
+        T: "A",
+        A: "U"
+    }
+    if (rnaKey[nucleotide]) {
+        return rnaKey[nucleotide]
+    }
+}
+
 const toRna = (string) => {
-    let stringArray = []
+    const rna = []
     string = string.split("")
-    string.forEach( character => {
-        if (character === "G") {
-            character = "C"
-            stringArray.push(character)
-        } else if (character === "C") {
-            character = "G"
-            stringArray.push(character)
-        } else if (character === "T" ) {
-            character = "A"
-            stringArray.push(character)
-        } else if (character === "A") {
-            character = "U"
-            stringArray.push(character)
-        }
+    string.forEach(nucleotide => {
+        let rnaNucleotide = transform(nucleotide)
+        rna.push(rnaNucleotide)
     })
-    return stringArray.join("")
+    return rna.join("")
 }
 
 export {toRna}

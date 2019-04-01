@@ -1,5 +1,3 @@
-// Given an age in seconds, calculate how old someone would be on each of the planets in the solar system.
-
 // each planets orbital period in Earth years
 const orbitalPeriods = {
     mercury: 0.2408467,

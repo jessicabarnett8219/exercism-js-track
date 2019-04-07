@@ -6,33 +6,27 @@ const isQuestion = (input) => {
     }
 }
 const isYelling = (input) => {
-    return input === input.toUpperCase()
-}
-const noLetters = (input) => {
     if (input.search(/[a-z]/i) === -1) {
-        return true
+        return false
+    } else {
+        return input === input.toUpperCase()
     }
 }
+
 export const hey = (message) => {
     let msg = message.trim()
 
-    if(noLetters(msg) && isQuestion(msg)) {
-        return "Sure."
-    }
-    else if (msg === "") {
-        return "Fine. Be that way!"
-    }
-    else if (noLetters(msg)) {
-        return "Whatever."
-    }
-    else if (isQuestion(msg) && isYelling(msg)) {
+    if (isQuestion(msg) && isYelling(msg)) {
         return "Calm down, I know what I'm doing!"
-    }
-    else if (isYelling(msg) && isQuestion(msg) !== true ) {
-        return "Whoa, chill out!"
     }
     else if (isQuestion(msg)) {
         return "Sure."
+    }
+    else if (isYelling(msg)) {
+        return "Whoa, chill out!"
+    }
+    else if (msg === "") {
+        return "Fine. Be that way!"
     }
     else {
         return "Whatever."

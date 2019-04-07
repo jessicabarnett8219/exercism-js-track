@@ -1,39 +1,37 @@
 /* eslint-disable no-unused-vars */
 //
-// This is only a SKELETON file for the 'Bob' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
-
+const isQuestion = (input) => {
+    if (input.endsWith("?")) {
+        return true
+    }
+}
+const isYelling = (input) => {
+    return input === input.toUpperCase()
+}
+const noLetters = (input) => {
+    if (input.search(/[a-z]/i) === -1) {
+        return true
+    }
+}
 export const hey = (message) => {
-    const isUpperCase = (str) => {
-        return str === str.toUpperCase();
-    }
     let msg = message.trim()
-    let lastIndex = msg.length - 1
 
-    if (msg.search(/[a-z]/i) === -1 && msg[lastIndex] === "?") {
+    if(noLetters(msg) && isQuestion(msg)) {
         return "Sure."
-    }
-    else if (msg.search(/[a-z]/i) === -1 && msg[lastIndex] === "!") {
-        return "Whoa, chill out!"
     }
     else if (msg === "") {
         return "Fine. Be that way!"
     }
-    else if (msg.search(/[a-z]/i) === -1) {
+    else if (noLetters(msg)) {
         return "Whatever."
     }
-    else if (isUpperCase(msg) === true && msg[lastIndex] !== "?") {
-        return "Whoa, chill out!"
-    }
-    else if (msg[lastIndex] === "?" && isUpperCase(msg) === true) {
+    else if (isQuestion(msg) && isYelling(msg)) {
         return "Calm down, I know what I'm doing!"
     }
-    else if (isUpperCase(msg) === true) {
+    else if (isYelling(msg) && isQuestion(msg) !== true ) {
         return "Whoa, chill out!"
     }
-    else if (msg[lastIndex] === "?") {
+    else if (isQuestion(msg)) {
         return "Sure."
     }
     else {
